@@ -94,6 +94,6 @@ Resolved data quality issues including hidden carriage return characters in VARC
 Author
 Snehal Dnyane
 snehaldnyane2005@gmail.com
-https://github.com/SnehalDnyane
+
 
 Dataset: IBM Telco Customer Churn — Kaggle
