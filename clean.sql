@@ -1,7 +1,7 @@
 USE churn_project;
 SET SQL_SAFE_UPDATES = 0;
 
--- FIX 1: TotalCharges has 11 blank/space rows
+-- 1: TotalCharges has 11 blank/space rows
 -- These are new customers with tenure = 0
 -- Must clean BEFORE converting to decimal type
 -- ------------------------------------------------------------
@@ -38,7 +38,7 @@ SELECT
 FROM customers;
 
 -- ------------------------------------------------------------
--- FIX 2: Add ChurnFlag column (1 = churned, 0 = retained)
+-- 2: Add ChurnFlag column (1 = churned, 0 = retained)
 -- Makes churn rate calculations much easier
 -- ------------------------------------------------------------
  
@@ -57,7 +57,7 @@ SET ChurnFlag = CASE WHEN Churn = 'Yes' THEN 1 ELSE 0 END;
 SELECT SUM(ChurnFlag) AS total_churned FROM customers;
 
 -- ------------------------------------------------------------
--- FIX 3: Add TenureBucket column
+-- 3: Add TenureBucket column
 -- Groups customers by how long they stayed
 -- ------------------------------------------------------------
  
@@ -81,7 +81,7 @@ ORDER BY FIELD(TenureBucket,
   '0-12 months','13-24 months',
   '25-48 months','49-60 months','61+ months');
   
--- FIX 4: Add SeniorCitizenLabel column (Yes/No)
+--  4: Add SeniorCitizenLabel column (Yes/No)
 -- Original uses 0/1 which is inconsistent with other columns
 -- ------------------------------------------------------------
  
